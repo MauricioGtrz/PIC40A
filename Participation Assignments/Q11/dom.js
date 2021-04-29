@@ -1,3 +1,3 @@
 document.getElementById("button").onclick = () => {
-  alert("hello");
+  document.getElementById("text-input").value = "";
 };
