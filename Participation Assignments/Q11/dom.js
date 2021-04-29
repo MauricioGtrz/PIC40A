@@ -15,10 +15,12 @@ button.onclick = () => {
   const text_input = document.getElementById("text-input");
 
   num++;
-  console.log(num);
-  alert(EvenOrOdd());
+  // console.log(num);
+  // alert(EvenOrOdd());
   line = "<li/>" + text_input.value;
-  console.log(line);
+  // console.log(line);
   ordered_list.innerHTML += line;
   text_input.value = "";
+
+  document.getElementsByTagName("li")[num - 1].setAttribute("class", "even");
 };
