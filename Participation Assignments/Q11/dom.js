@@ -11,4 +11,5 @@ document.getElementById("button").onclick = () => {
   console.log(num);
   alert(EvenOrOdd());
   document.getElementById("text-input").value = "";
+  document.getElementById("list").appendChild(document.createElement("li"));
 };
