@@ -9,8 +9,10 @@ function EvenOrOdd() {
 const button = document.getElementById("button");
 
 button.onclick = () => {
+  let line = "<li/>";
+
   const ordered_list = document.getElementById("list");
-  const new_list_item = document.createElement("li");
+  const new_list_item = (ordered_list.innerHTML += line);
 
   num++;
   console.log(num);
