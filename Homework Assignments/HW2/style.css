@@ -1,0 +1,71 @@
+body {
+  background: black;
+  color: aqua;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: aqua;
+}
+
+p {
+  text-indent: 50px;
+}
+
+#text {
+  display: inline-block;
+}
+
+/* Table */
+#table {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+table {
+  border: solid aqua 1px;
+}
+th {
+  border: solid aqua 1px;
+}
+td {
+  border: solid aqua 1px;
+}
+
+/* Images */
+img {
+  height: 300px;
+  width: 500px;
+}
+#images {
+  display: block;
+  margin-bottom: 10px;
+}
+#img1 {
+  z-index: 0;
+  position: relative;
+}
+#img2 {
+  z-index: -1;
+  position: relative;
+  left: -450px;
+  top: 50px;
+}
+#img3 {
+  z-index: -2;
+  position: relative;
+  left: -900px;
+  top: 100px;
+}
+#img1:hover {
+  z-index: 1;
+  border: red 3px solid;
+}
+#img2:hover {
+  z-index: 1;
+  border: red 3px solid;
+}
+#img3:hover {
+  z-index: 1;
+  border: red 3px solid;
+}
