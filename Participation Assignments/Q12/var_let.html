@@ -12,7 +12,7 @@
       const funs = []; //array funs is created
 
       /* loop goes through 10 iterations  */
-      for (let i = 1; i <= 10; ++i) {
+      for (var i = 1; i <= 10; ++i) {
         /* .push function is added to the array as an object */
         funs.push(() => {
           document.getElementById("print").innerHTML += i; //number 'i' is added to the current #print inner html
@@ -22,8 +22,7 @@
       for (const f of funs) {
         f();
       }
-
-      funs[0]();
+      console.log(typeof i);
     </script>
   </body>
 </html>

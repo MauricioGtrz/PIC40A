@@ -1,0 +1,13 @@
+Array funs is created. 
+/* Variable is set to let */
+A for loop goes through 10 iterations.
+Each iteration adds a .push function to the array.
+The .push function contains a function that gets the paragraph element and changes the inner html to be the current iteration number plus the previous iteration numbers.
+A for loop at the bottom goes through each iteration in funs and runs the corresponding function in the array.
+The output is 12345678910.
+
+/* Variable is set to var */
+All is similar to the previous case except for one exception.
+Because the for loop variable is set to var then that creates hoisting in javascript.
+This causes the variable to be hoisted as its last assigned value and when the function is called it displays 11 instead of its corresponding number like the case above.
+The output is 11111111111111111111.
