@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,23 @@
     <title>TABLE OF HAILSTONE SEQUENCE VALUES</title>
 </head>
 <body>
-    
+<table>
+      <thead>
+        <tr>
+          <th>Iteration</th>
+          <th>x</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>16</td>
+        </tr>
+      </tbody>
+    </table>
 </body>
 </html>
