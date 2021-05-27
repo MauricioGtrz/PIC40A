@@ -1,0 +1,15 @@
+/* CSS Table Styling */
+
+/* removes the borders on the table */
+table {
+  border-collapse: collapse;
+}
+/* each th and td tag that is a first child receives styling */
+th:first-child,
+td:first-child {
+  border-right: 2px solid black;
+}
+/* each td tag receives styling */
+td {
+  border-top: 2px solid black;
+}
