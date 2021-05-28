@@ -11,9 +11,9 @@
 <body>
     <form method="post" action="<?php echo $_SERVER ['PHP_Self'] ?>" >
         <label for="userEmail">Email:</label><br/>
-        <input type="text" id="userEmail" name="userEmail" /><br/>
+        <input type="e" id="userEmail" name="userEmail" required/><br/>
         <label for="userPassword">Password:</label><br/>
-        <input type="text" id="userPassword" name="userPassword" /><br/>
+        <input type="text" id="userPassword" name="userPassword" pattern="[A-Za-z\d]{6,}" required /> (At least 6 characters/digits)<br/>
         <input type="submit" value = "post" />
     </form>
     <p>
