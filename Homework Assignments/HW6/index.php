@@ -9,11 +9,15 @@
     <title>USER ACCOUNT LOGIN SYSTEM</title>
 </head>
 <body>
-    <form method="post" action="/~mauriciogtrz/HW6/index.php" >
-        <input type="text" name="userMessagePost" />
+    <form method="post" action="<?php echo $_SERVER ['PHP_Self'] ?>" >
+        <label for="userEmail">Email:</label><br/>
+        <input type="text" id="userEmail" name="userEmail" /><br/>
+        <label for="userPassword">Password:</label><br/>
+        <input type="text" id="userPassword" name="userPassword" /><br/>
         <input type="submit" value = "post" />
     </form>
     <p>
-        Post: hello<br/>  </p>
+    <?php echo 'Email: ', $_POST['userEmail'], '<br/>','Password: ', $_POST['userPassword'],'<br/>'; ?>
+    </p>
 </body>
 </html>
