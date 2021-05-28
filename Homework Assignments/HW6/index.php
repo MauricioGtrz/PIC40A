@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,11 @@
     <title>USER ACCOUNT LOGIN SYSTEM</title>
 </head>
 <body>
-    
+    <form method="post" action="/~mauriciogtrz/HW6/index.php" >
+        <input type="text" name="userMessagePost" />
+        <input type="submit" value = "post" />
+    </form>
+    <p>
+        Post: hello<br/>  </p>
 </body>
 </html>
