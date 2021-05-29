@@ -12,13 +12,13 @@
     @param string $password the password the user entered
     @param boolean $error the error flag to possibly change
     */
-    function validate($password, &$error){
+    function validate($email, $password, &$error){
         $file = fopen('password.txt', 'r'); // open file to read
         $line = fgets($file); // get the line
         fclose($file); // close the file
         $true_login = trim($line); // trim white space
 
-        if($password === $true_login){ // if they match, great
+        if($email === 'bobsmith@gmail.com' && $password === $true_login){ // if they match, great
             $_SESSION['loggedin'] = true;
             header('Location: welcome.php');
         }
@@ -29,7 +29,7 @@
 
     $error = false;
     if(isset($_POST['password'])){ // if something was posted
-        validate($_POST['password'], $error); // check it
+        validate($_POST['email'], $_POST['password'], $error); // check it
     }
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,9 @@
 </head>
 <body>
     <form method = "post" action ="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input type="password" name="password" /> <input type="submit" value="log in" />
+        <input type="email" name="email" />
+        <input type="password" name="password" />
+        <input type="submit" value="log in" />
         <?php if($error) { // wrong password ?>
         <p>Invalid password!</p> <?php
         } ?>
