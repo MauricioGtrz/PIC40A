@@ -13,12 +13,12 @@
     @param boolean $error the error flag to possibly change
     */
     function validate($password, &$error){
-        $fin = fopen('password.txt', 'r'); // open file to read
-        $true_pass = fgets($fin); // get the line
-        fclose($fin); // close the file
-        $true_pass = trim($true_pass); // trim white space
+        $file = fopen('password.txt', 'r'); // open file to read
+        $line = fgets($file); // get the line
+        fclose($file); // close the file
+        $true_login = trim($line); // trim white space
 
-        if($password === $true_pass){ // if they match, great
+        if($password === $true_login){ // if they match, great
             $_SESSION['loggedin'] = true;
             header('Location: welcome.php');
         }
