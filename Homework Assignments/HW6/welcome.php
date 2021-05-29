@@ -8,6 +8,8 @@
     <title>USER ACCOUNT LOGIN SYSTEM</title>
 </head>
 <body>
-    
+    <p>Welcome! Your email is: bobsmith@gmail.com... [Logout button here]</p>
+    <p>Here is a list of all the registered email addresses:</p>
+    <p>[List of emails here...]</p>
 </body>
 </html>
