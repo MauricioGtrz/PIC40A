@@ -13,12 +13,18 @@
     @param boolean $error the error flag to possibly change
     */
     function validate($email, $password, &$error){
-        $file = fopen('password.txt', 'r'); // open file to read
+        $file = fopen('login.txt', 'r'); // open file to read
         $line = fgets($file); // get the line
         fclose($file); // close the file
-        $true_login = trim($line); // trim white space
 
-        if($email === 'bobsmith@gmail.com' && $password === $true_login){ // if they match, great
+        
+        $true_login = trim($line); // trim white space
+        $true_login = explode('\t', $true_login); // split line into an aray by \t
+        
+        $true_email = $true_login[0];
+        $true_password = $true_login[1];
+
+        if($email === $true_email && $password === $true_password){ // if they match, great
             $_SESSION['loggedin'] = true;
             header('Location: welcome.php');
         }
@@ -28,8 +34,18 @@
     }
 
     $error = false;
-    if(isset($_POST['password'])){ // if something was posted
+    if(isset($_POST['login'])){ // if something was posted
         validate($_POST['email'], $_POST['password'], $error); // check it
+    }
+
+    function message($email, $password){
+        $hashed_password = hash('md2', $password);
+        $message = "Validate by clicking here: https://www.pic.ucla.edu/~mauriciogtrz/HW6/validate.php?email=".$email."&hashed_password=".$hashed_password;
+        mail($email, 'Subject Line', $message); //mauriciogtrz@g.ucla.edu
+    }
+
+    if(isset($_POST['register'])){
+        message($_POST['email'], $_POST['password']);
     }
 ?>
 <!DOCTYPE html>
@@ -42,9 +58,12 @@
 </head>
 <body>
     <form method = "post" action ="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input type="email" name="email" />
-        <input type="password" name="password" />
-        <input type="submit" value="log in" />
+        <label for="email">Email:</label><br>
+        <input type="text" name="email" id="email"/><br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" id="password" pattern="[A-Za-z\d]{6,}" required /> (At least 6 characters/digits)<br>
+        <input type="submit" value="register" name="register"  />
+        <input type="submit" value="login" name="login" />
         <?php if($error) { // wrong password ?>
         <p>Invalid password!</p> <?php
         } ?>
