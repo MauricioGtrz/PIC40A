@@ -10,14 +10,14 @@
   </head>
   <body id="body">
     <main>
-      <form id="img_upload">
+      <form id="img_upload" method="POST" action="upload.php">
         <b>Image Uploads</b> <br /><br />
         <button>Choose File</button> <br />
         <label for="img_title">IMAGE TITLE: </label>
-        <input type="text" />
+        <input type="text" name="img_title" id="img_title" />
         <label for="user_name">YOUR NAME: </label>
-        <input type="text" /><br />
-        <input type="button" value="Submit" id="img_upload_submit" />
+        <input type="text" name="user_name" id="user_name" /><br />
+        <input type="submit" value="Submit" id="img_upload_submit" />
       </form>
       <br /><br /><br />
       <form id="img_view" method="POST" action="display.php">
