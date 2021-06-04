@@ -9,6 +9,20 @@
     <title>IMAGE SHARING SITE</title>
 </head>
 <body>
-    <?php echo "Thank you ", $_POST['user_name'], " for uploading ", $_POST['img_title']; ?>
+    <?php //echo "Thank you ", $_POST['user_name'], " for uploading ", $_POST['img_title']; ?>
+    <?php
+        if( isset($_POST['img_upload_submit']) ){ // they did submit
+            echo "Thank you ", $_POST['user_name'], " for uploading ", $_POST['img_title'];
+    
+            $fileName = $_FILES['user_file']['name'];
+            $saveLocation = dirname(realpath(__FILE__)) . '/uploads/' . $fileName;
+            move_uploaded_file($_FILES['user_file']['tmp_name'], $saveLocation);
+
+            echo '<br /><img src="./uploads/'.$fileName.'" alt="Your Uploaded Image" class="uploaded_img">';
+        }
+        else{
+            echo 'no file submitted';
+        }
+    ?>
 </body>
 </html>

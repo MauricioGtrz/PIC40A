@@ -10,14 +10,26 @@
   </head>
   <body id="body">
     <main>
-      <form id="img_upload" method="POST" action="upload.php">
+      <form
+        id="img_upload"
+        method="POST"
+        action="upload.php"
+        enctype="multipart/form-data"
+      >
         <b>Image Uploads</b> <br /><br />
-        <button>Choose File</button> <br />
+        <input type="file" value="Choose file" name="user_file" />
+        <br />
         <label for="img_title">IMAGE TITLE: </label>
         <input type="text" name="img_title" id="img_title" />
         <label for="user_name">YOUR NAME: </label>
-        <input type="text" name="user_name" id="user_name" /><br />
-        <input type="submit" value="Submit" id="img_upload_submit" />
+        <input type="text" name="user_name" id="user_name" />
+        <br />
+        <input
+          type="submit"
+          value="Submit"
+          id="img_upload_submit"
+          name="img_upload_submit"
+        />
       </form>
       <br /><br /><br />
       <form id="img_view" method="POST" action="display.php">
