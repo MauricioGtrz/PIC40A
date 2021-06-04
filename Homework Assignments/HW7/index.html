@@ -5,29 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <script src="app.js" defer></script>
+    <title>IMAGE SHARING SITE</title>
   </head>
-  <body>
+  <body id="body">
     <main>
-      <form>
+      <form id="img_upload">
         <b>Image Uploads</b> <br /><br />
         <button>Choose File</button> <br />
         <label for="img_title">IMAGE TITLE: </label>
         <input type="text" />
         <label for="user_name">YOUR NAME: </label>
         <input type="text" /><br />
-        <input type="submit" value="Submit" />
+        <input type="button" value="Submit" id="img_upload_submit" />
       </form>
       <br /><br /><br />
-      <form>
-        <b>Image Viewing</b> <br /><br />
+      <form id="img_view" method="POST" action="display.php">
+        <b>Image Viewing</b>
+        <br /><br />
         <label for="person">PERSON:</label>
-        <input type="text" id="person" /> <br />
+        <input type="text" id="person" />
+        <br />
         <label for="red">Red</label>
-        <input type="radio" name="red" id="red" />
+        <input type="radio" name="color" id="red" value="red" checked />
         <label for="blue">Blue</label>
-        <input type="radio" name="blue" id="blue" /> <br />
-        <input type="submit" value="Submit" />
+        <input type="radio" name="color" id="blue" value="blue" />
+        <br />
+        <input type="submit" value="Submit" id="img_view_submit" />
       </form>
     </main>
   </body>
