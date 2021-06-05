@@ -15,7 +15,6 @@
 
 
 
-
         if( isset($_POST['img_upload_submit'])){ // they did submit
             $fileType = explode('.', $_FILES['user_file']['name']);
             $fileName = $_POST['img_title'].'.'.$fileType[1];
