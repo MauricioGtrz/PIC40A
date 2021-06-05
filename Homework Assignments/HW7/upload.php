@@ -21,7 +21,9 @@
             $dir = "./uploads";
             $files = scandir($dir);
             if (array_search($newFileName, $files) === false) {
-                echo "Your image has been uploaded";
+                date_default_timezone_set('America/Los_Angeles');
+                $date_time = date('d/m/Y').' '.date('H:i');
+                echo "Your image has been uploaded at ", $date_time;
                 move_uploaded_file($_FILES['user_file']['tmp_name'], $saveLocation);
                 exec("mogrify -format png $saveLocation");
                 exec("rm -f ./uploads/".$fileName);
