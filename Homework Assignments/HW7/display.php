@@ -9,5 +9,21 @@
     <title><?php echo $_POST['user_name']."'s", " photos"; ?></title>
 </head>
 <body class="<?php echo $_POST['color']; ?>">
+    <main>
+        <?php 
+            $userName = $_POST['user_name'];
+
+            $db = new SQLite3('uploads_database.db'); // opens or creates the database
+            $statement = "SELECT * FROM uploads_table WHERE user_name = '$userName';";
+
+            $run = $db->query($statement);
+            if ($run){
+                while($row = $run->fetchArray()){ // while still a row to parse
+                    echo '<img src="'.$row['file_location'].'" alt="'.$row['upload_date'].'" title="'.$row['upload_date'].'" class="uploaded_img">';
+                    echo $row['file_name'], '--', $row['user_name'], '--', $row['file_location'], '--', $row['file_views'], '--', $row['upload_date'], '<br/>'; // print all the data
+                }
+            }
+        ?>
+    </main>
 </body>
 </html>

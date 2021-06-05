@@ -29,7 +29,7 @@
             if (array_search($newFileName, $files) === false) {
                 date_default_timezone_set('America/Los_Angeles');
                 $dateTime = date('d/m/Y').' '.date('H:i');
-                echo "Your image has been uploaded at ", $dateTime;
+                echo "Your image has been uploaded.";
                 move_uploaded_file($_FILES['user_file']['tmp_name'], $saveLocation);
                 exec("mogrify -format png $saveLocation");
                 exec("rm -f ./uploads/".$fileName);
