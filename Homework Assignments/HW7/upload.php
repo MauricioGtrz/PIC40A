@@ -9,7 +9,6 @@
     <title>IMAGE SHARING SITE</title>
 </head>
 <body>
-    <?php //echo "Thank you ", $_POST['user_name'], " for uploading ", $_POST['img_title']; ?>
     <?php
         if( isset($_POST['img_upload_submit']) ){ // they did submit
             echo "Thank you ", $_POST['user_name'], " for uploading ", $_POST['img_title'];
