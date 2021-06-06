@@ -19,8 +19,9 @@
             $run = $db->query($statement);
             if ($run){
                 while($row = $run->fetchArray()){ // while still a row to parse
-                    echo '<img src="'.$row['file_location'].'" alt="'.$row['upload_date'].'" title="'.$row['upload_date'].'" class="uploaded_img">';
-                    echo $row['file_name'], '--', $row['user_name'], '--', $row['file_location'], '--', $row['file_views'], '--', $row['upload_date'], '<br/>'; // print all the data
+                    echo '<img src="'.$row['file_location'].'" alt="'.$row['upload_date'].'" title="'.$row['upload_date'].'" class="uploaded_img">', '<br />';
+                    echo "<b>".$row['file_name']." has ".$row['file_views']." view(s)."."</b>"."<br />";
+                    //echo $row['file_name'], '--', $row['user_name'], '--', $row['file_location'], '--', $row['file_views'], '--', $row['upload_date'], '<br/>'; // print all the data
                 }
             }
         ?>
