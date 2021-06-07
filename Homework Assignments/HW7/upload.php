@@ -11,7 +11,7 @@
 <body>
     <?php
         $db = new SQLite3('uploads_database.db'); // opens or creates the database
-        $db->query("CREATE TABLE IF NOT EXISTS uploads_table(file_name TEXT, user_name TEXT, file_location TEXT, file_views INTEGER, upload_date TEXT);");
+        $db->query("CREATE TABLE IF NOT EXISTS uploads_table(file_name TEXT, user_name TEXT, file_location TEXT, file_views INTEGER, upload_date TEXT, file_fullname TEXT);");
 
 
 
@@ -21,12 +21,13 @@
             $saveLocation = dirname(realpath(__FILE__)) . '/uploads/' . $fileName;
             
             $userName = $_POST['user_name'];
-            $newFileName = $_POST['img_title'].'.png';
+            $newFileName = $_POST['img_title'];
+            $newFileFullname = $_POST['img_title'].'.png';
             $fileLocation = './uploads/'.$newFileName;
 
             $dir = "./uploads";
             $files = scandir($dir);
-            if (array_search($newFileName, $files) === false) {
+            if (array_search($newFileFullname, $files) === false) {
                 date_default_timezone_set('America/Los_Angeles');
                 $dateTime = date('d/m/Y').' '.date('H:i');
                 echo "Your image has been uploaded.";
@@ -41,8 +42,9 @@
                 $entry_file_location = $fileLocation;
                 $entry_file_views = 0;
                 $entry_upload_date = $dateTime;
+                $entry_file_fullname = $newFileFullname;
 
-                $statement = "INSERT INTO uploads_table (file_name, user_name, file_location, file_views, upload_date) VALUES ('$entry_file_name', '$entry_user_name', '$entry_file_location', $entry_file_views,'$entry_upload_date');";
+                $statement = "INSERT INTO uploads_table (file_name, user_name, file_location, file_views, upload_date, file_fullname) VALUES ('$entry_file_name', '$entry_user_name', '$entry_file_location', $entry_file_views, '$entry_upload_date', '$entry_file_fullname');";
                 $db->query($statement);
                 $db->close();
             } else{
