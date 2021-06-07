@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="./app.js" defer></script>
     <title><?php echo $_POST['user_name']."'s", " photos"; ?></title>
 </head>
 <body class="<?php echo $_POST['color']; ?>">
@@ -30,6 +31,7 @@
             }
             $db->close();
         ?>
+        <img src="https://www.animalspot.net/wp-content/uploads/2013/02/Rabbit-Images.jpg" alt="bunny" class="img" id="img">
     </main>
 </body>
 </html>
