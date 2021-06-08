@@ -48,7 +48,11 @@
                 $db->query($statement);
                 $db->close();
             } else{
-                echo "A photo named ".$newFileName." already exists.";
+                $statement = "SELECT user_name FROM uploads_table WHERE file_name = '$newFileName';";
+                $run = $db->query($statement);
+                $get_name = $run->fetchArray();
+                echo "A photo named ".$newFileName." by ".$get_name['user_name']." already exists.";
+                $db->close();
                 return;
             }
 
