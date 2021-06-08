@@ -1,4 +1,16 @@
 #!/usr/local/bin/php
+<?php 
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+        ob_start();
+        $outputName = "photo.png"; 
+        $file = "./uploads/" . $_GET['file'];
+        header("Content-Type: application/octet-stream");
+        header('Content-Disposition: attachment; filename="' . $outputName . '"');
+        readfile ($file);
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +32,7 @@
             $run = $db->query($statement);
             if ($run){
                 while($row = $run->fetchArray()){ // while still a row to parse
-                    echo '<img src="'.$row['file_location'].'" alt="'.$row['upload_date'].'" title="'.$row['upload_date'].'" class="uploaded_img">', '<br />';
+                    echo '<img src="'.$row['file_location'].'" alt="'.$row['upload_date'].'" title="'.$row['upload_date'].'" id= "'.$row['file_fullname'].'">', '<br />';
                     echo "<b>".$row['file_name']." has ".$row['file_views']." view(s)."."</b>"."<br />";
                     
                     $file_name = $row['file_name'];
@@ -31,7 +43,6 @@
             }
             $db->close();
         ?>
-        <img src="https://www.animalspot.net/wp-content/uploads/2013/02/Rabbit-Images.jpg" alt="bunny" class="img" id="img">
     </main>
 </body>
 </html>
