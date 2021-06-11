@@ -4,9 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Final</title>
   </head>
   <body>
-    <main><form action=""></form></main>
+    <main>
+      <form action="convert.php" method="POST" enctype="multipart/form-data">
+        <b>Upload Files:</b>
+        <br />
+        <br />
+        <input type="file" name="their_files[]" id="their_files" multiple />
+        <br />
+        <br />
+        CHOOSE CONVERSTION TYPE:
+        <br /><br />
+        <label for="png">PNG</label>
+        <input type="radio" name="radio_button" id="png" value="png" />
+        <label for="jpeg">JPEG</label>
+        <input type="radio" name="radio_button" id="jpg" value="jpg" />
+        <label for="eps">EPS</label>
+        <input type="radio" name="radio_button" id="eps" value="eps" />
+        <label for="pdf">PDF</label>
+        <input type="radio" name="radio_button" id="pdf" value="pdf" />
+        &emsp;
+        <input type="submit" value="Submit" name="submit" />
+      </form>
+    </main>
   </body>
 </html>
