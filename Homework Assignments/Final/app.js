@@ -1,3 +1,7 @@
+/**This function sets an ajax call and validates that the inputed file exists on the server and 
+downloads it if it exists. Otherwise it throws an error.
+@param string file the file the user entered
+*/
 function transform(file) {
   const x = new XMLHttpRequest();
   x.onreadystatechange = function () {
